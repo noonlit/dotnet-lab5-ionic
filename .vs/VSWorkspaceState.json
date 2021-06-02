@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\components\\side.menu",
+    "\\src\\app\\models",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\add-movie-page",
+    "\\src\\app\\pages\\edit-movie-page",
+    "\\src\\app\\pages\\movies",
+    "\\src\\app\\services"
+  ],
+  "SelectedNode": "\\src\\app\\pages\\edit-movie-page\\edit.movie.page.ts",
+  "PreviewInSolutionExplorer": false
+}
