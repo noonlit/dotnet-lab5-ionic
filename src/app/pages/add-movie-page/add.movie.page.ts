@@ -16,7 +16,7 @@ export class AddMoviePage {
     private apiSvc: ApiService,
     private navCtrl: NavController,
     private alertCtrl: AlertController
-  ) {}
+  ) { }
   saveMovie() {
     this.apiSvc.post('api/Movies', this.movie).subscribe(
       () => {
@@ -39,7 +39,7 @@ export class AddMoviePage {
     );
   }
 
-  backToMovies() {
-    this.navCtrl.pop();
+  goToList() {
+    this.navCtrl.navigateBack('/movies');
   }
 }

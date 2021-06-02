@@ -14,6 +14,10 @@ export class EditMoviePage {
   movie;
 
   ngOnInit() {
+    if (this.dataService.movie == null) {
+      this.goToList();
+    }
+
     this.movie = this.dataService.movie;
   }
 
@@ -45,8 +49,8 @@ export class EditMoviePage {
     );
   }
 
-  backToMovies() {
+  goToList() {
     this.dataService.movie = null;
-    this.navCtrl.pop();
+    this.navCtrl.navigateBack('/movies');
   }
 }

@@ -14,17 +14,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { EditMoviePage } from './pages/edit-movie-page/edit.movie.page';
 import { DataService } from './services/data.service';
+import { LoginPage } from './pages/login/login.page';
+import { AuthService } from './services/auth.service';
+import { ViewMoviePage } from './pages/view-movie-page/view.movie.page';
 
 @NgModule({
   declarations: [
     // components
     AddMoviePage,
     EditMoviePage,
+    ViewMoviePage,
     AppComponent,
     NavbarComponent,
     SideMenuComponent,
     // pages
     MoviesPage,
+    LoginPage
   ],
   entryComponents: [],
   imports: [
@@ -37,6 +42,7 @@ import { DataService } from './services/data.service';
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ApiService,
+    AuthService,
     DataService
   ],
   bootstrap: [AppComponent],

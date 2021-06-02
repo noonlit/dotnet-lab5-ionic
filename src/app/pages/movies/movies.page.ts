@@ -3,6 +3,8 @@ import { ApiService } from './../../services/api.service';
 import { Movie } from './../../models/movie.model';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { AuthService } from '../../services/auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movies',
@@ -12,10 +14,12 @@ import { DataService } from '../../services/data.service';
 })
 export class MoviesPage {
   movies: Array<Movie>;
+  isAuthenticated: Observable<boolean>;
 
-  constructor(private apiSvc: ApiService, private router: Router, private dataSvc: DataService) { }
+  constructor(private apiSvc: ApiService, private router: Router, private dataSvc: DataService, private authSvc: AuthService) { }
   ionViewWillEnter() {
     this.dataSvc.movie = null;
+    this.isAuthenticated = this.authSvc.isAuthenticated();
     this.loadMovies();
   }
 
@@ -25,7 +29,12 @@ export class MoviesPage {
 
   editMovie(movie: Movie) {
     this.dataSvc.movie = movie;
-    this.router.navigateByUrl('movies/edit');
+    this.router.navigateByUrl('movies/edit/' + movie.id);
+  }
+
+  viewMovie(movie: Movie) {
+    this.dataSvc.movie = movie;
+    this.router.navigateByUrl('movies/view/' + movie.id);
   }
 
   deleteMovie(movie: Movie) {

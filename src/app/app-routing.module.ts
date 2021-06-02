@@ -3,6 +3,8 @@ import { EditMoviePage } from './pages/edit-movie-page/edit.movie.page';
 import { MoviesPage } from './pages/movies/movies.page';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginPage } from './pages/login/login.page';
+import { ViewMoviePage } from './pages/view-movie-page/view.movie.page';
 
 const routes: Routes = [
   {
@@ -14,14 +16,22 @@ const routes: Routes = [
     component: AddMoviePage,
   },
   {
-    path: 'movies/edit',
+    path: 'movies/edit/:id',
     component: EditMoviePage,
+  },
+  {
+    path: 'movies/view/:id',
+    component: ViewMoviePage,
   },
   {
     path: '',
     redirectTo: 'movies',
     pathMatch: 'full'
-  }
+  },
+  {
+    path: 'login',
+    component: LoginPage,
+  },
 ];
 
 @NgModule({
@@ -30,4 +40,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
