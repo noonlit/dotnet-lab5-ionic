@@ -1,5 +1,5 @@
 import { Movie, GENRES } from './../../models/movie.model';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { AlertController, NavController } from '@ionic/angular';
 import { DataService } from '../../services/data.service';
@@ -8,7 +8,7 @@ import { DataService } from '../../services/data.service';
   selector: 'app-edit-movie',
   templateUrl: '../add-movie-page/add.movie.page.html',
 })
-export class EditMoviePage {
+export class EditMoviePage implements OnInit {
   GENRES = GENRES;
 
   movie;

@@ -5,6 +5,9 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { LoginPage } from './pages/login/login.page';
 import { ViewMoviePage } from './pages/view-movie-page/view.movie.page';
+import { FavouritesPage } from './pages/favourites/favourites.page';
+import { EditFavouritesPage } from './pages/edit-favourites-page/edit.favourites.page';
+import { AddFavouritesPage } from './pages/add-favourites-page/add.favourites.page';
 
 const routes: Routes = [
   {
@@ -31,6 +34,18 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginPage,
+  },
+  {
+    path: 'favourites',
+    component: FavouritesPage,
+  },
+  {
+    path: 'favourites/edit/:id',
+    component: EditFavouritesPage,
+  },
+  {
+    path: 'favourites/add',
+    component: AddFavouritesPage,
   },
 ];
 

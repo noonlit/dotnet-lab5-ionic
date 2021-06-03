@@ -10,10 +10,13 @@
           <ion-item [routerLink]="'/movies'">Movies</ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle auto-hide="true">
-          <ion-item [routerLink]="'/login'">Log in</ion-item>
+          <ion-item *ngIf="isAuthenticated | async" [routerLink]="'/favourites'">Favourites</ion-item>
         </ion-menu-toggle>
         <ion-menu-toggle auto-hide="true">
-          <ion-item (click)="logOut()">Log out</ion-item>
+          <ion-item *ngIf="!(isAuthenticated | async)" [routerLink]="'/login'">Log in</ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle auto-hide="true">
+          <ion-item *ngIf="isAuthenticated | async" (click)="logOut()">Log out</ion-item>
         </ion-menu-toggle>
       </ion-list>
     </ion-content>

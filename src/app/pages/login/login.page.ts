@@ -23,7 +23,7 @@ export class LoginPage {
       .post('api/Authentication/login', this.loginData)
       .subscribe((response: AuthResponse) => {
         this.authSvc.saveToken(response.token);
-        this.router.navigateByUrl('/movies');
+        window.location.href = '/';
       });
   }
 }
